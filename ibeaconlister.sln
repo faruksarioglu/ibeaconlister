@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32602.291
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ibeaconlister", "ibeaconlister.csproj", "{31027D87-5A90-4EA7-86D9-520603ACEC18}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{31027D87-5A90-4EA7-86D9-520603ACEC18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31027D87-5A90-4EA7-86D9-520603ACEC18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31027D87-5A90-4EA7-86D9-520603ACEC18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31027D87-5A90-4EA7-86D9-520603ACEC18}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CBB532E2-29EF-47F3-95E0-57650339F21B}
+	EndGlobalSection
+EndGlobal
