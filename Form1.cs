@@ -23,12 +23,55 @@ namespace ibeaconlister
             baglanti = new SqlConnection("Data Source=DESKTOP-4SBPHP7\\SQLEXPRESS;Initial Catalog=ibeacon;Integrated Security=True");
             baglanti.Open();
             button1.Text = baglanti.State.ToString();
-            da = new SqlDataAdapter("Select uuid,rssi,timestamp From devicesignallog where datediff( mi,timestamp,current_timestamp)<50;", baglanti);
+            string dev = "device2";
+            da1 = new SqlDataAdapter("Select deviceid from device", baglanti);
+            da = new SqlDataAdapter("Select gatewayId,rssi,timestamp, datediff( mi,devicesignallog.timestamp,current_timestamp) as recent_dk from devicesignallog where gatewayId like '"+dev+"'", baglanti);
+          
             System.Data.DataTable tablo = new DataTable();
+            System.Data.DataTable tablo1 = new DataTable();
+
             da.Fill(tablo);
+            da1.Fill(tablo1);
             dataGridView1.DataSource = tablo;
+           // dataGridView1.Refresh();
+            listBox1.DataSource = tablo1;
+            listBox1.DisplayMember = "deviceid";
+            listBox1.ValueMember = "deviceid";
+
+           // baglanti.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string dev1 = listBox1.SelectedValue.ToString();
+            //baglanti.Open;
+            da2 = new SqlDataAdapter("Select gatewayId, rssi, timestamp, datediff(mi, devicesignallog.timestamp, current_timestamp) as recent_dk from devicesignallog where gatewayId like TRIM('" + listBox1.SelectedValue + "')", baglanti);
+            System.Data.DataTable tablo2 = new DataTable();
+            da2.Fill(tablo2);
+
+            dataGridView1.DataSource = tablo2;
             dataGridView1.Refresh();
-            baglanti.Close();
+            button1.Text = dev1;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            
+            dataGridView1.Refresh();
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string dev1 = listBox1.SelectedValue.ToString();
+            //baglanti.Open;
+            da2 = new SqlDataAdapter("Select gatewayId, rssi, timestamp, datediff(mi, devicesignallog.timestamp, current_timestamp) as recent_dk from devicesignallog where gatewayId like TRIM('" + listBox1.SelectedValue + "')", baglanti);
+            System.Data.DataTable tablo2 = new DataTable();
+            da2.Fill(tablo2);
+
+            dataGridView1.DataSource = tablo2;
+            dataGridView1.Refresh();
+            button1.Text = dev1;
+
         }
     }
 }
